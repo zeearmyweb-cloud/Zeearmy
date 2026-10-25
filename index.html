@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zeearmy ✦ Desarrollo Web de Alto Impacto que Maximiza el Alcance de tu Marca</title>
+  <meta name="description" content="Estudio de desarrollo web a medida. Creamos landing pages de alta conversión, sitios corporativos y plataformas web ultra rápidas, minimalistas e interactivas.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo-icon.jpg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            deep: '#060609',
+            surface: '#0D0D14',
+            purpleNeon: '#7C3AED',
+            purpleBright: '#8B5CF6',
+            pinkNeon: '#E879F9',
+            orchidNeon: '#C084FC',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#060609] text-white selection:bg-purple-600 selection:text-white">
+
+  <!-- Ambient Glowing Background Elements -->
+  <div class="ambient-glow">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Cursor Follower Light Effect -->
+  <div class="cursor-glow hidden md:block"></div>
+
+  <!-- ============================================================== -->
+  <!-- NAVIGATION / HEADER (Floating Capsule Glassmorphism)           -->
+  <!-- ============================================================== -->
+  <header class="fixed top-5 left-0 w-full z-50 px-4 sm:px-6">
+    <nav id="main-navbar" class="max-w-6xl mx-auto glass-capsule-nav rounded-full px-5 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center gap-2.5 group">
+        <div class="relative w-8 h-8 rounded-lg overflow-hidden border border-purple-500/40 shadow-[0_0_12px_rgba(232,121,249,0.35)] transition-transform duration-300 group-hover:scale-110">
+          <img src="assets/logo-icon.jpg" alt="zeearmy icon" class="w-full h-full object-cover">
+        </div>
+        <span class="font-display font-black text-xl tracking-tight text-white group-hover:text-pink-300 transition-colors">
+          zeearmy<span class="text-pink-400 drop-shadow-[0_0_8px_#E879F9]">✦</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#inicio" class="nav-link-item text-purple-300 font-semibold transition-colors duration-200 hover:text-pink-300">Inicio</a></li>
+        <li><a href="#sobre-nosotros" class="nav-link-item text-gray-300 transition-colors duration-200 hover:text-pink-300">Sobre Nosotros</a></li>
+        <li><a href="#servicios" class="nav-link-item text-gray-300 transition-colors duration-200 hover:text-pink-300">Servicios</a></li>
+        <li><a href="#portafolio" class="nav-link-item text-gray-300 transition-colors duration-200 hover:text-pink-300">Proyectos</a></li>
+        <li><a href="#contacto" class="nav-link-item text-gray-300 transition-colors duration-200 hover:text-pink-300">Contacto</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contacto" class="btn-primary-gradient px-5 py-2.5 rounded-full text-xs font-bold tracking-wide uppercase flex items-center gap-2 group">
+          <span>Iniciar Proyecto</span>
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 transition-transform group-hover:rotate-12"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-1.5 focus:outline-none" aria-label="Abrir Menú">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Dropdown Menu Modal -->
+    <div id="mobile-menu" class="hidden opacity-0 translate-y-[-10px] transition-all duration-300 fixed inset-x-4 top-24 bg-[#0d0d16]/95 backdrop-blur-2xl border border-purple-500/20 rounded-2xl p-6 shadow-2xl z-50 md:hidden">
+      <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-5">
+        <div class="flex items-center gap-2">
+          <img src="assets/logo-icon.jpg" alt="zeearmy icon" class="w-7 h-7 rounded-lg object-cover">
+          <span class="font-display font-bold text-white text-lg">zeearmy<span class="text-pink-400">✦</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-gray-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <ul class="flex flex-col gap-4 text-base font-medium">
+        <li><a href="#inicio" class="mobile-nav-link text-white hover:text-pink-400 block py-1">Inicio</a></li>
+        <li><a href="#sobre-nosotros" class="mobile-nav-link text-gray-300 hover:text-pink-400 block py-1">Sobre Nosotros</a></li>
+        <li><a href="#servicios" class="mobile-nav-link text-gray-300 hover:text-pink-400 block py-1">Servicios</a></li>
+        <li><a href="#portafolio" class="mobile-nav-link text-gray-300 hover:text-pink-400 block py-1">Proyectos</a></li>
+        <li><a href="#contacto" class="mobile-nav-link text-gray-300 hover:text-pink-400 block py-1">Contacto</a></li>
+      </ul>
+
+      <div class="mt-6 pt-4 border-t border-white/10">
+        <a href="#contacto" class="mobile-nav-link btn-primary-gradient w-full py-3 rounded-xl text-center font-bold text-sm block">
+          Agendar Llamada ✦
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ============================================================== -->
+    <!-- HERO SECTION (Antigravity Interactive Experience)              -->
+    <!-- ============================================================== -->
+    <section id="inicio" class="relative min-h-screen pt-36 pb-20 flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-grid-pattern">
+      
+      <!-- Interactive Physics Background Canvas -->
+      <canvas id="antigravity-hero-canvas"></canvas>
+
+      <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+        
+        <!-- Tag Indicator -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs font-semibold tracking-wider uppercase mb-7 shadow-[0_0_15px_rgba(124,58,237,0.3)] backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
+          <span>Experiencia Web Interactiva & Fluida</span>
+          <span class="text-pink-400">✦</span>
+        </div>
+
+        <!-- Main H1 Title -->
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+          Desarrollo Web de Alto Impacto <br class="hidden sm:inline" />
+          que Maximiza el <span class="text-gradient">Alcance de tu Marca</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="max-w-2xl text-base sm:text-lg md:text-xl text-gray-300 font-normal leading-relaxed mb-10">
+          Diseñamos y programamos sitios web ultra modernos, veloces e interactivos a medida que convierten visitas en clientes y posicionan tu marca en la cima digital.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <a href="#servicios" class="btn-primary-gradient w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold tracking-wide flex items-center justify-center gap-3">
+            <span>Ver Nuestro Servicio</span>
+            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+          </a>
+          <a href="#contacto" class="btn-secondary-glow w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center justify-center gap-3">
+            <span>Iniciar Proyecto Web</span>
+            <i data-lucide="message-circle" class="w-4 h-4 text-pink-400"></i>
+          </a>
+        </div>
+
+        <!-- Floating Antigravity Interactive Chips -->
+        <div class="mt-14 w-full max-w-2xl flex flex-wrap items-center justify-center gap-3 sm:gap-4 relative select-none">
+          <div class="antigravity-badge antigravity-badge-float">
+            <span class="text-purple-400">⚡</span>
+            <span>Landing Pages de Alta Conversión</span>
+          </div>
+          <div class="antigravity-badge antigravity-badge-float">
+            <span class="text-pink-400">🛍️</span>
+            <span>E-Commerce & Tiendas Virtuales</span>
+          </div>
+          <div class="antigravity-badge antigravity-badge-float">
+            <span class="text-purple-300">🏢</span>
+            <span>Sitios Corporativos a Medida</span>
+          </div>
+          <div class="antigravity-badge antigravity-badge-float">
+            <span class="text-pink-300">🎨</span>
+            <span>Diseño UI/UX Inmersivo</span>
+          </div>
+          <div class="antigravity-badge antigravity-badge-float">
+            <span class="text-indigo-300">🚀</span>
+            <span>Velocidad Extrema 100/100</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-gray-500 mt-4 flex items-center gap-1.5">
+          <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-pink-400"></i>
+          <span>Mueve el cursor o interactúa con las etiquetas flotantes en tiempo real</span>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- METRICS & TRUST STATS STRIP                                     -->
+    <!-- ============================================================== -->
+    <section id="stats-section" class="border-y border-white/10 bg-[#0a0914]/80 backdrop-blur-xl py-12 relative">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        
+        <div class="flex flex-col items-center">
+          <div class="font-display text-3xl sm:text-4xl font-extrabold text-white flex items-center">
+            <span>+</span><span class="counter-value" data-target="10">0</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 font-medium mt-1">Más de 10 páginas entregadas exitosamente y contando</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="font-display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 flex items-center">
+            <span class="counter-value" data-target="99">0</span><span>.9%</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 font-medium mt-1">Uptime y Alta Disponibilidad</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="font-display text-3xl sm:text-4xl font-extrabold text-white flex items-center">
+            <span>&lt;</span><span class="counter-value" data-target="1">0</span><span>s</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 font-medium mt-1">Tiempo de Carga Promedio</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="font-display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 flex items-center">
+            <span class="counter-value" data-target="100">0</span><span>%</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 font-medium mt-1">Garantía de Satisfacción</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECCIÓN: SOBRE NOSOTROS (About Us)                             -->
+    <!-- ============================================================== -->
+    <section id="sobre-nosotros" class="py-24 sm:py-32 px-4 sm:px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-bold tracking-widest text-pink-400 uppercase bg-purple-900/30 border border-purple-500/20 px-3.5 py-1.5 rounded-full inline-block mb-4">
+            Sobre Nosotros
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+            Especialistas Exclusivos en <span class="text-gradient">Desarrollo Web Moderno</span>
+          </h2>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-10">
+            En <strong class="text-white">zeearmy</strong> somos un estudio boutique enfocado 100% en el desarrollo de páginas y aplicaciones web a medida. No hacemos soluciones genéricas ni usamos plantillas infladas: programamos experiencias digitales veloces, minimalistas y de impacto cinematográfico que hacen destacar a tu empresa.
+          </p>
+
+          <!-- Brand Highlight Capsule Banner -->
+          <div class="p-0.5 rounded-2xl bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-purple-500/30 shadow-[0_0_35px_rgba(124,58,237,0.25)]">
+            <div class="bg-[#0b0914]/90 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 backdrop-blur-xl">
+              <div class="flex items-center gap-4 text-left">
+                <img src="assets/logo-zeearmy.png" alt="zeearmy brand" class="h-10 sm:h-12 object-contain rounded-lg drop-shadow-[0_0_15px_rgba(232,121,249,0.3)]">
+                <div>
+                  <h4 class="font-display font-bold text-base sm:text-lg text-white">zeearmy Web Development Studio</h4>
+                  <p class="text-xs text-gray-400">Ingeniería Frontend & Plataformas Digitales a Medida</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-semibold text-purple-300 bg-purple-950/70 border border-purple-500/30 px-3.5 py-1.5 rounded-full shrink-0">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <span>Aceptando nuevos proyectos web</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Pilares Visuales con Borde Brilloso Morado -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          
+          <!-- Pilar 1 -->
+          <div class="glass-card card-spotlight p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600/30 to-pink-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 mb-6 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                <i data-lucide="code-2" class="w-7 h-7 text-pink-400"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Código Limpio y Moderno</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Desarrollamos con tecnologías web vanguardistas, código semántico modular y arquitecturas ligeras que garantizan durabilidad, facilidad de mantenimiento y cero fallos.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-purple-400">
+              <span>Stack Web Vanguardista</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="glass-card card-spotlight p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600/30 to-pink-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 mb-6 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                <i data-lucide="layout-grid" class="w-7 h-7 text-pink-400"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Diseño Interactivo & UI/UX</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Animaciones dinámicas que reaccionan al cursor, navegación ultrasuave, diseño 100% responsive y una experiencia visual inmersiva.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-purple-400">
+              <span>UI/UX Fluida e Interactiva</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="glass-card card-spotlight p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600/30 to-pink-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 mb-6 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                <i data-lucide="gauge" class="w-7 h-7 text-pink-400"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Velocidad Extrema & Conversión</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Optimizamos cada byte para obtener puntuaciones 95+ en Google PageSpeed. Cargas instantáneas de menos de 1 segundo para maximizar la retención y ventas de tu negocio.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-purple-400">
+              <span>Máxima Tasa de Conversión</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECCIÓN: SERVICIOS (Enfocado Exclusivamente en Desarrollo Web)  -->
+    <!-- ============================================================== -->
+    <section id="servicios" class="py-24 sm:py-32 px-4 sm:px-6 relative bg-gradient-to-b from-transparent via-[#0d0d19]/40 to-transparent">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-bold tracking-widest text-pink-400 uppercase bg-purple-900/30 border border-purple-500/20 px-3.5 py-1.5 rounded-full inline-block mb-4">
+            Servicio Especializado
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+            Nuestro Único Enfoque: <span class="text-gradient">Desarrollo Web</span>
+          </h2>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+            Nos dedicamos con obsesión a una sola disciplina y la dominamos al máximo: diseñamos y programamos sitios web a medida con arquitectura moderna, rendimiento extremo y estética interactiva.
+          </p>
+        </div>
+
+        <!-- Master Flagship Card: Desarrollo Web -->
+        <div class="glass-card card-spotlight p-8 sm:p-12 border-purple-500/40 shadow-[0_0_40px_rgba(124,58,237,0.2)] mb-10">
+          
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-10 border-b border-white/10">
+            <div class="max-w-2xl">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30 text-xs font-semibold mb-4">
+                <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
+                <span>Ingeniería Web Boutique</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-4xl font-extrabold text-white mb-4">
+                Desarrollo Web a Medida de Alto Rendimiento
+              </h3>
+              <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                Construimos plataformas digitales que combinan velocidad de carga instantánea, micro-interacciones fluidas y un diseño visual pensado para convertir visitantes en clientes fidelizados.
+              </p>
+            </div>
+
+            <div class="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+              <a href="#contacto" class="btn-primary-gradient px-8 py-4 rounded-xl text-sm font-bold text-center tracking-wide flex items-center justify-center gap-3">
+                <span>Cotizar Proyecto Web</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <span class="text-xs text-center text-gray-400 font-mono">Entrega rápida desde 2 a 3 días hábiles</span>
+            </div>
+          </div>
+
+          <!-- 3 Modalidades de Desarrollo Web -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
+            
+            <!-- Modalidad 1: Landing Pages -->
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-pink-400 mb-5 group-hover:scale-110 transition-transform">
+                  <i data-lucide="layout" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-display text-lg font-bold text-white mb-2 group-hover:text-pink-300 transition-colors">
+                  Landing Pages de Conversión
+                </h4>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5">
+                  Páginas de aterrizaje diseñadas con precisión psicológica para lanzamientos, campañas publicitarias y captación masiva de prospectos.
+                </p>
+                <ul class="space-y-2 text-xs text-gray-300">
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Tiempos de carga &lt; 0.8 segundos</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Estructura orientada a ventas</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Integración de analítica y CRM</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Modalidad 2: Sitios Corporativos -->
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 mb-5 group-hover:scale-110 transition-transform">
+                  <i data-lucide="globe" class="w-6 h-6 text-pink-400"></i>
+                </div>
+                <h4 class="font-display text-lg font-bold text-white mb-2 group-hover:text-pink-300 transition-colors">
+                  Sitios Web Corporativos
+                </h4>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5">
+                  Presencia digital institucional para empresas que buscan transmitir autoridad, credibilidad y una identidad de marca prémium.
+                </p>
+                <ul class="space-y-2 text-xs text-gray-300">
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Arquitectura multipágina escalable</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Micro-interacciones y animaciones fluidas</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>SEO técnico optimizado para Google</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Modalidad 3: E-Commerce & Tiendas -->
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 mb-5 group-hover:scale-110 transition-transform">
+                  <i data-lucide="shopping-bag" class="w-6 h-6 text-pink-400"></i>
+                </div>
+                <h4 class="font-display text-lg font-bold text-white mb-2 group-hover:text-pink-300 transition-colors">
+                  E-Commerce & Tiendas Online
+                </h4>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5">
+                  Tiendas virtuales modernas preparadas para vender 24/7 con catálogo interactivo, carrito rápido y pasarelas de pago seguras.
+                </p>
+                <ul class="space-y-2 text-xs text-gray-300">
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Pasarelas Stripe, PayPal y locales</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Checkout optimizado en 1 paso</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i>
+                    <span>Experiencia móvil 100% ágil</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Barra de Garantías Técnicas de Desarrollo Web -->
+          <div class="mt-10 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4 text-center sm:text-left">
+            <div class="flex items-center gap-3">
+              <i data-lucide="zap" class="w-5 h-5 text-pink-400 shrink-0"></i>
+              <div>
+                <h5 class="text-xs font-bold text-white">95+ PageSpeed</h5>
+                <p class="text-[11px] text-gray-400">Velocidad garantizada</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="smartphone" class="w-5 h-5 text-purple-400 shrink-0"></i>
+              <div>
+                <h5 class="text-xs font-bold text-white">100% Responsive</h5>
+                <p class="text-[11px] text-gray-400">Perfecto en móviles</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-pink-400 shrink-0"></i>
+              <div>
+                <h5 class="text-xs font-bold text-white">Seguridad SSL</h5>
+                <p class="text-[11px] text-gray-400">Cifrado total y CDN</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="search" class="w-5 h-5 text-purple-400 shrink-0"></i>
+              <div>
+                <h5 class="text-xs font-bold text-white">SEO On-Page</h5>
+                <p class="text-[11px] text-gray-400">Indexación técnica</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECCIÓN: PORTAFOLIO / PROYECTOS DESTACADOS                     -->
+    <!-- ============================================================== -->
+    <section id="portafolio" class="py-24 sm:py-32 px-4 sm:px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="text-xs font-bold tracking-widest text-pink-400 uppercase bg-purple-900/30 border border-purple-500/20 px-3.5 py-1.5 rounded-full inline-block mb-4">
+              Casos de Éxito
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+              Proyectos que Generan <span class="text-gradient">Resultados</span>
+            </h2>
+          </div>
+          <p class="text-gray-400 text-sm max-w-md">
+            Cada solución está construida con precisión quirúrgica, fusionando diseño de clase mundial con arquitectura escalable.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Proyecto 1 -->
+          <div class="glass-card card-spotlight group rounded-2xl overflow-hidden flex flex-col">
+            <div class="h-48 bg-gradient-to-br from-purple-900/50 via-[#181328] to-pink-900/30 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-pink-500/20 blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              <div class="flex justify-between items-center z-10">
+                <span class="text-[11px] font-bold text-purple-300 bg-purple-950/80 px-2.5 py-1 rounded-full border border-purple-500/30">Landing Page</span>
+                <span class="text-xs text-gray-400 font-mono">0.6s carga</span>
+              </div>
+              <div class="z-10">
+                <div class="w-10 h-10 rounded-xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-white mb-2">
+                  <i data-lucide="sparkles" class="w-5 h-5 text-pink-400"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">NovaMind Studio Web</h4>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Landing page interactiva de alta conversión para empresa tecnológica, con animaciones fluidas y micro-interacciones al cursor.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">HTML5/Tailwind</span>
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">JavaScript ES6+</span>
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">99 PageSpeed</span>
+                </div>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-pink-400 font-semibold">
+                <span>+240% Incremento en Registros</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="glass-card card-spotlight group rounded-2xl overflow-hidden flex flex-col">
+            <div class="h-48 bg-gradient-to-br from-indigo-950/60 via-[#131124] to-purple-950/40 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-purple-500/20 blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              <div class="flex justify-between items-center z-10">
+                <span class="text-[11px] font-bold text-purple-300 bg-purple-950/80 px-2.5 py-1 rounded-full border border-purple-500/30">E-Commerce</span>
+                <span class="text-xs text-gray-400 font-mono">100 Mobile Score</span>
+              </div>
+              <div class="z-10">
+                <div class="w-10 h-10 rounded-xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-white mb-2">
+                  <i data-lucide="shopping-bag" class="w-5 h-5 text-pink-400"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">Vortex Brand Studio</h4>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Tienda virtual de diseño prémium con visualizador de producto interactivo y pasarela de pago optimizada para compras móviles.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">E-Commerce Moderno</span>
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">Stripe API</span>
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">Web 3D Canvas</span>
+                </div>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-pink-400 font-semibold">
+                <span>+185% Ratio de Conversión</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="glass-card card-spotlight group rounded-2xl overflow-hidden flex flex-col">
+            <div class="h-48 bg-gradient-to-br from-fuchsia-950/40 via-[#181122] to-purple-950/60 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-pink-500/20 blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              <div class="flex justify-between items-center z-10">
+                <span class="text-[11px] font-bold text-purple-300 bg-purple-950/80 px-2.5 py-1 rounded-full border border-purple-500/30">Sitio Corporativo</span>
+                <span class="text-xs text-gray-400 font-mono">SEO Top 1</span>
+              </div>
+              <div class="z-10">
+                <div class="w-10 h-10 rounded-xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-white mb-2">
+                  <i data-lucide="globe" class="w-5 h-5 text-pink-400"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">Apex Global Platform</h4>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Sitio web institucional multipágina con arquitectura cloud, panel de cotizaciones dinámico y diseño visual moderno sin plantillas.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">Arquitectura Web</span>
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">Glassmorphism UI</span>
+                  <span class="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded">SSL & CDN</span>
+                </div>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-pink-400 font-semibold">
+                <span>100% Satisfacción del Cliente</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- PREGUNTAS FRECUENTES (FAQ Accordion)                           -->
+    <!-- ============================================================== -->
+    <section class="py-20 px-4 sm:px-6 relative">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="text-center mb-14">
+          <span class="text-xs font-bold tracking-widest text-pink-400 uppercase bg-purple-900/30 border border-purple-500/20 px-3.5 py-1.5 rounded-full inline-block mb-4">
+            Dudas Comunes
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Preguntas <span class="text-gradient">Frecuentes</span>
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item glass-card p-6 cursor-pointer border border-white/10 transition-colors">
+            <div class="faq-trigger flex justify-between items-center">
+              <h3 class="font-semibold text-white text-base sm:text-lg">¿Cuánto tiempo toma desarrollar una Landing Page o sitio web?</h3>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-300"></i>
+            </div>
+            <div class="faq-content hidden mt-4 pt-4 border-t border-white/10 text-gray-300 text-sm leading-relaxed">
+              Dependiendo del alcance, una Landing Page de alto impacto toma habitualmente de entre dos a tres días hábiles. Los sitios web corporativos o plataformas webs completas se desarrollan de entre 5 días hábiles o una semana con entregables interactivos en cada fase.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item glass-card p-6 cursor-pointer border border-white/10 transition-colors">
+            <div class="faq-trigger flex justify-between items-center">
+              <h3 class="font-semibold text-white text-base sm:text-lg">¿Qué tecnologías utilizan para programar los sitios web?</h3>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-300"></i>
+            </div>
+            <div class="faq-content hidden mt-4 pt-4 border-t border-white/10 text-gray-300 text-sm leading-relaxed">
+              Trabajamos con código limpio de máxima velocidad: HTML5 semántico, Tailwind CSS, JavaScript moderno y arquitecturas modernas optimizadas. No usamos plantillas lentas ni constructores sobrecargados; cada página se desarrolla a medida para garantizar tiempos de carga menores a 1 segundo y un diseño único.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item glass-card p-6 cursor-pointer border border-white/10 transition-colors">
+            <div class="faq-trigger flex justify-between items-center">
+              <h3 class="font-semibold text-white text-base sm:text-lg">¿El diseño es completamente a medida y adaptado a móviles?</h3>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-300"></i>
+            </div>
+            <div class="faq-content hidden mt-4 pt-4 border-t border-white/10 text-gray-300 text-sm leading-relaxed">
+              Absolutamente. No usamos plantillas genéricas. Cada proyecto se diseña desde cero con identidad única, animaciones fluidas e interactivas y adaptabilidad móvil perfecta.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item glass-card p-6 cursor-pointer border border-white/10 transition-colors">
+            <div class="faq-trigger flex justify-between items-center">
+              <h3 class="font-semibold text-white text-base sm:text-lg">¿Ofrecen soporte y mantenimiento post-lanzamiento?</h3>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-300"></i>
+            </div>
+            <div class="faq-content hidden mt-4 pt-4 border-t border-white/10 text-gray-300 text-sm leading-relaxed">
+              Sí. Brindamos planes de acompañamiento mensual, soporte técnico prioritario, optimizaciones de seguridad y actualizaciones continuas para garantizar que tu solución opere siempre al 100%.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECCIÓN: CONTACTO                                              -->
+    <!-- ============================================================== -->
+    <section id="contacto" class="py-24 sm:py-32 px-4 sm:px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Contact Left Info -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold tracking-widest text-pink-400 uppercase bg-purple-900/30 border border-purple-500/20 px-3.5 py-1.5 rounded-full inline-block mb-4">
+                Contacto Directo
+              </span>
+              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+                ¿Listo para <br class="hidden sm:inline" />
+                <span class="text-gradient">Maximizar tu alcance?</span>
+              </h2>
+              <p class="text-gray-300 text-base leading-relaxed mb-8">
+                Cuéntanos sobre tu idea, empresa o reto digital. Te responderemos en menos de 24 horas con una propuesta clara y sin rodeos.
+              </p>
+
+              <!-- Contact Cards Info -->
+              <div class="space-y-4 mb-8">
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                  <div class="w-10 h-10 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-pink-400">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-400 block font-medium">Escríbenos por correo</span>
+                    <a href="mailto:zeearmyweb@gmail.com" class="text-white text-sm font-semibold hover:text-pink-300 transition-colors">zeearmyweb@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                  <div class="w-10 h-10 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-pink-400">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-400 block font-medium">Llamada / WhatsApp</span>
+                    <a href="https://wa.me/584142179693" target="_blank" rel="noopener" class="text-white text-sm font-semibold hover:text-pink-300 transition-colors">+58 414 217 9693</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div>
+                <span class="text-xs text-gray-400 font-semibold tracking-wider uppercase block mb-3">Redes y Comunidad</span>
+                <div class="flex items-center gap-3">
+                  <a href="https://www.instagram.com/zeearmyweb?dlrf=MXkxNHp3NDJ4aTJmeg==" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-gradient-to-tr hover:from-purple-600 hover:to-pink-500 border border-white/10 hover:border-pink-500/40 flex items-center justify-center text-pink-400 hover:text-white transition-all duration-200 group shadow-[0_0_15px_rgba(232,121,249,0.15)]" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 transition-transform group-hover:scale-110">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                  </a>
+                  <a href="https://www.instagram.com/zeearmyweb?dlrf=MXkxNHp3NDJ4aTJmeg==" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-300 hover:text-pink-300 transition-colors flex items-center gap-1.5">
+                    <span>@zeearmyweb</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-pink-400"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Contact Form Glass Panel -->
+          <div class="lg:col-span-7">
+            <div class="glass-card p-8 sm:p-10 border border-purple-500/20 shadow-[0_0_40px_rgba(124,58,237,0.15)]">
+              
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Inicia una Conversación</h3>
+              <p class="text-gray-400 text-sm mb-8">Completa el formulario y te enviaremos una propuesta inicial en menos de 24 horas.</p>
+
+              <form id="contact-form" class="space-y-6">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <!-- Nombre -->
+                  <div>
+                    <label for="form-name" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Tu Nombre *</label>
+                    <input type="text" id="form-name" required placeholder="Ej. Alex Turner" class="form-input-custom w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none">
+                  </div>
+
+                  <!-- Correo -->
+                  <div>
+                    <label for="form-email" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Correo Electrónico *</label>
+                    <input type="email" id="form-email" required placeholder="alex@empresa.com" class="form-input-custom w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none">
+                  </div>
+                </div>
+
+                <!-- Tipo de Servicio -->
+                <div>
+                  <label for="form-service" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Tipo de Proyecto Web</label>
+                  <select id="form-service" class="form-input-custom w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none">
+                    <option value="landing-page">Landing Page de Alta Conversión</option>
+                    <option value="corporate-site">Sitio Web Corporativo / Institucional</option>
+                    <option value="ecommerce">E-Commerce & Tienda Online</option>
+                    <option value="redesign">Rediseño & Optimización de Sitio Existente</option>
+                    <option value="custom-web-platform">Plataforma o Aplicación Web a Medida</option>
+                  </select>
+                </div>
+
+                <!-- Mensaje -->
+                <div>
+                  <label for="form-message" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Cuéntanos sobre tu Proyecto *</label>
+                  <textarea id="form-message" rows="4" required placeholder="Describe tu objetivo, plazos o especificaciones que consideres clave..." class="form-input-custom w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none resize-none"></textarea>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button type="submit" class="btn-primary-gradient w-full py-4 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 group">
+                  <span>Enviar Mensaje</span>
+                  <i data-lucide="send" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- FOOTER                                                         -->
+  <!-- ============================================================== -->
+  <footer class="border-t border-white/10 bg-[#060609] pt-16 pb-12 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-2">
+          <a href="#inicio" class="inline-flex items-center gap-3 mb-4 group">
+            <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-purple-500/40 shadow-[0_0_15px_rgba(232,121,249,0.3)] transition-transform duration-300 group-hover:scale-110">
+              <img src="assets/logo-icon.jpg" alt="zeearmy icon" class="w-full h-full object-cover">
+            </div>
+            <span class="font-display font-black text-2xl tracking-tight text-white group-hover:text-pink-300 transition-colors">
+              zeearmy<span class="text-pink-400 drop-shadow-[0_0_10px_#E879F9]">✦</span>
+            </span>
+          </a>
+          <p class="text-gray-400 text-sm max-w-sm leading-relaxed mb-6">
+            Estudio boutique especializado exclusivamente en desarrollo web de alto impacto, experiencias interactivas y arquitectura digital a medida.
+          </p>
+          <div class="text-xs text-gray-500 font-mono mb-4">
+            Diseñado con precisión & código moderno de alto rendimiento.
+          </div>
+          <a href="https://www.instagram.com/zeearmyweb?dlrf=MXkxNHp3NDJ4aTJmeg==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-pink-400 transition-colors">
+            <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-400"></i>
+            <span>Síguenos en Instagram @zeearmyweb</span>
+          </a>
+        </div>
+
+        <!-- Links Rápidos -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Navegación</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="#inicio" class="hover:text-pink-400 transition-colors">Inicio</a></li>
+            <li><a href="#sobre-nosotros" class="hover:text-pink-400 transition-colors">Sobre Nosotros</a></li>
+            <li><a href="#servicios" class="hover:text-pink-400 transition-colors">Desarrollo Web</a></li>
+            <li><a href="#portafolio" class="hover:text-pink-400 transition-colors">Proyectos</a></li>
+            <li><a href="#contacto" class="hover:text-pink-400 transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Servicios -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Especialidades Web</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="#servicios" class="hover:text-pink-400 transition-colors">Landing Pages de Conversión</a></li>
+            <li><a href="#servicios" class="hover:text-pink-400 transition-colors">Sitios Web Corporativos</a></li>
+            <li><a href="#servicios" class="hover:text-pink-400 transition-colors">E-Commerce & Tiendas Online</a></li>
+            <li><a href="#servicios" class="hover:text-pink-400 transition-colors">Rediseño & Modernización</a></li>
+            <li><a href="#contacto" class="hover:text-pink-400 transition-colors">Cotización a Medida</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <p>&copy; 2026 zeearmy. Todos los derechos reservados.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-gray-300 transition-colors">Política de Privacidad</a>
+          <a href="#" class="hover:text-gray-300 transition-colors">Términos de Servicio</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- FLOATING WHATSAPP BUTTON (Pulse Effect)                        -->
+  <!-- ============================================================== -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <button id="whatsapp-quick-cta" aria-label="Hablar por WhatsApp" class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-700 to-pink-500 text-white flex items-center justify-center shadow-[0_0_25px_rgba(232,121,249,0.5)] hover:scale-110 active:scale-95 transition-all duration-300 relative group">
+      <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-400 border-2 border-[#060609] rounded-full animate-pulse"></span>
+      <i data-lucide="message-circle" class="w-7 h-7"></i>
+      <span class="absolute right-16 bg-[#0e0d18] border border-purple-500/30 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+        ¿Hablamos por WhatsApp?
+      </span>
+    </button>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- TOAST NOTIFICATION                                             -->
+  <!-- ============================================================== -->
+  <div id="toast-notification" class="fixed bottom-6 left-1/2 z-50 bg-[#121020]/95 backdrop-blur-xl border border-purple-500/50 rounded-2xl px-6 py-4 shadow-[0_0_40px_rgba(124,58,237,0.4)] flex items-center gap-4 text-white">
+    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center shrink-0">
+      <i data-lucide="check" class="w-5 h-5 text-white"></i>
+    </div>
+    <div>
+      <h5 class="text-sm font-bold">¡Mensaje enviado con éxito!</h5>
+      <p class="text-xs text-gray-300">Gracias por contactar a zeearmy. Te responderemos pronto.</p>
+    </div>
+  </div>
+
+  <!-- Lucide Icons initialize -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
