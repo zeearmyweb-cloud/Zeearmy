@@ -530,12 +530,11 @@ function initContactForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('form-name')?.value.trim();
     const email = document.getElementById('form-email')?.value.trim();
-    const service = document.getElementById('form-service')?.value;
     const message = document.getElementById('form-message')?.value.trim();
 
     if (!name || !email || !message) {
@@ -556,19 +555,41 @@ function initContactForm() {
       Enviando solicitud...
     `;
 
-    setTimeout(() => {
+    try {
+      // Preparamos los datos del formulario para Web3Forms
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200) {
+        form.reset();
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 5000);
+        }
+      } else {
+        alert(result.message || 'Ocurrió un error al enviar el formulario.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error de conexión. Inténtalo de nuevo.');
+    } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
-      form.reset();
-
-      // Show toast
-      if (toast) {
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 5000);
-      }
-    }, 1200);
+    }
   });
 
   // Dynamic WhatsApp quick action
@@ -580,3 +601,4 @@ function initContactForm() {
     });
   }
 }
+
